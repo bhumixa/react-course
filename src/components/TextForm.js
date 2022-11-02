@@ -6,7 +6,7 @@ export default function TextForm(props) {
     const [text, setText] = useState("");
     const [uText, setUtext] = useState("");
     const [reverseText, setReverse] = useState("");
-
+    
     const makeUpper = () => {
         let n = text.toUpperCase();
         setUtext(n)
@@ -20,6 +20,14 @@ export default function TextForm(props) {
 
     const makeReverse = ()=>{
         let textArray = text.split("")
+        let reversedarray = textArray.reverse()
+        let newText = reversedarray.join("")
+        console.log(newText)
+        setReverse(newText)
+    }
+
+    const reversewords = () =>{
+        let textArray = text.split(" ")
         let reversedarray = textArray.reverse()
         let newText = reversedarray.join("")
         console.log(newText)
@@ -42,6 +50,8 @@ export default function TextForm(props) {
                 <button className="btn btn-primary mx-1" onClick={makeUpper}> Convert to Uppercase </button>
                 <button className="btn btn-primary mx-1" onClick={clear}> Clear </button>
                 <button className="btn btn-primary mx-1" onClick={makeReverse}> Reverse Text </button>
+                <button className="btn btn-primary mx-1" onClick={reversewords}> Reverse Words </button>
+                
             </div>
             <div className="container my-3">
                 <h1> Text Summary</h1>
